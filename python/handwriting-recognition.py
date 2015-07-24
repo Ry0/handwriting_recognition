@@ -50,8 +50,8 @@ def handwrite(img, callback_fun):
     cv2.setMouseCallback('Handwriting Recognition', callback_fun)
 
     print "\nウィンドウにマウスでひらがなを書いてださい"
-    print "書き終わったら Type \"S\""
-    print "書き間違えたら Type \"C\""
+    print "書き終わったら Type \"Enter\""
+    print "書き間違えたら Type \"Backspace←\""
     print "やめたかったら Type \"Esc\""
 
     while True:
@@ -60,12 +60,12 @@ def handwrite(img, callback_fun):
         k = 0
         k = cv2.waitKey(1)&0xFF
 
-        if k == ord('s'):
-            # print "s"
+        if k == 10:
+            # print "Enter"
             cv2.imwrite("moji.jpg", img)
             break
-        elif k == ord('c'):
-            # print "c"
+        elif k == 8:
+            # print "Backspace"
             create_firstcanvas(img)
             click_counter = 0
         elif k == 27:
@@ -128,7 +128,7 @@ if __name__ == "__main__":
         for i in range(3):
             print str(i) + "  -> " + hiraganalist[sorted_prediction_ind[i]] + " (" + str(round(predictions[0,sorted_prediction_ind[i]]*100,2)) + "%)"
 
-        print "\nもう1回やる          Type \"A\"   "
+        print "\nもう1回やる          Type \"Enter\"   "
         print "結果を保存してやめる Type \"S\"   "
         print "やめる               Type \"Esc\" \n"
 
@@ -146,7 +146,7 @@ if __name__ == "__main__":
             filename = "../image/" + save_filename(str(romajilist[sorted_prediction_ind[0]]))
             cv2.imwrite(filename, img)
             break;
-        elif e == ord('a'):
+        elif e == 10:
             click_counter = 0
             print "Play agein !"
         elif e == 27:

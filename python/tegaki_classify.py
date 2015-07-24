@@ -31,7 +31,7 @@ if __name__ == "__main__":
         mean_blob.width))
     classifier = caffe.Classifier(
         '../tegaki_cifar10_quick.prototxt',
-        '../tegaki_cifar10_quick_iter_5000.caffemodel',
+        '../tegaki_cifar10_quick_iter_10000.caffemodel',
         mean=mean_array,
         raw_scale=255)
 
@@ -47,10 +47,3 @@ if __name__ == "__main__":
     print "first  -> " + first
     print "second -> " + second
     print "third  -> " + third
-
- #    print name[pred]
- #    print
- #    for i,data in enumerate(name):
-	# print "class" + str(i+1) + " name：" + data
-	# print predictions[0][int(i)]*100
-

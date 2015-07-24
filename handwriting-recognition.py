@@ -106,7 +106,7 @@ if __name__ == "__main__":
         print "third  -> " + hiraganalist[sorted_prediction_ind[2]] + " (" + str(round(predictions[0,sorted_prediction_ind[2]]*100,2)) + "%)"
 
         print "\nType \"a\"   もう1回やる"
-        print "Type \"s\"   結果を保存"
+        print "Type \"s\"   結果を保存してやめる"
         print "Type \"Esc\" やめる\n"
 
         cv2.putText(img,first,(110, 480), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 4, cv2.CV_AA)
@@ -117,6 +117,7 @@ if __name__ == "__main__":
         if e == ord('s'):
             print "Save image !"
             cv2.imwrite("./image/moji_result.png", img)
+            break;
         elif e == ord('a'):
             print "Play agein !"
         elif e == 27:

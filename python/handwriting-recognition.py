@@ -44,8 +44,9 @@ def draw(event, x, y, flags, param):
 
 
 def handwrite(img, callback_fun):
-    cv2.namedWindow('Handwriting Recognition')
+    global click_counter
 
+    cv2.namedWindow('Handwriting Recognition')
     cv2.setMouseCallback('Handwriting Recognition', callback_fun)
 
     print "\nウィンドウにマウスでひらがなを書いてださい"
@@ -65,7 +66,8 @@ def handwrite(img, callback_fun):
             break
         elif k == ord('c'):
             # print "c"
-            img.fill(255)
+            create_firstcanvas(img)
+            click_counter = 0
         elif k == 27:
             # print "ESC"
             break
@@ -106,8 +108,8 @@ if __name__ == "__main__":
     # ローマ字とひらがなのリストをよみこみ（OpenCVが日本語書き込みできないため，ローマ字も）
     romajilist = []
     hiraganalist = []
-    read_list(romajilist, "./CharacterList/romaji.txt")
-    read_list(hiraganalist, "./CharacterList/hiragana.txt")
+    read_list(romajilist, "../characterlist/romaji.txt")
+    read_list(hiraganalist, "../characterlist/hiragana.txt")
 
     # 512x512の白色の窓作成
     img = np.zeros((512,512,3),np.uint8)
@@ -126,9 +128,9 @@ if __name__ == "__main__":
         for i in range(3):
             print str(i) + "  -> " + hiraganalist[sorted_prediction_ind[i]] + " (" + str(round(predictions[0,sorted_prediction_ind[i]]*100,2)) + "%)"
 
-        print "\nType \"A\"   もう1回やる"
-        print "Type \"S\"   結果を保存してやめる"
-        print "Type \"Esc\" やめる\n"
+        print "\nもう1回やる          Type \"A\"   "
+        print "結果を保存してやめる Type \"S\"   "
+        print "やめる               Type \"Esc\" \n"
 
         # cv2.putText()は日本語は出力できないのでローマ字で表記
         first = str(romajilist[sorted_prediction_ind[0]]) + " (" + str(round(predictions[0,sorted_prediction_ind[0]]*100,2)) + "%)"

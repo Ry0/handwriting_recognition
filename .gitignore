@@ -6,3 +6,4 @@ dataset
 *.solverstate
 !tegaki_cifar10_quick_with_dropout_iter_10000.caffemodel
 !tegaki_cifar10_quick_with_dropout_iter_10000.solverstate
+caffe.ry0.log.INFO.20150724-022500.8152

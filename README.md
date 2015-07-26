@@ -5,7 +5,7 @@
 
 ```bash
 cd caffe/examples
-git clone git@github.com:Ry0/handwriting_recognition.git
+git clone https://github.com/Ry0/handwriting_recognition.git
 ```
 
 ##Cifar10のモデルを使って学習

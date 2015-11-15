@@ -22,4 +22,4 @@ max_iter: 10000
 snapshot: 5000
 snapshot_prefix: "examples/handwriting_recognition/tegaki_cifar10_quick_with_dropout"
 # solver mode: CPU or GPU
-solver_mode: CPU
+solver_mode: GPU
